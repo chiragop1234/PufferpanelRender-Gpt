@@ -1,6 +1,10 @@
 # Use the official PufferPanel image
 FROM pufferpanel/pufferpanel:latest
 
+ENV    name root
+ENV    password pufferpanel
+ENV    email root@localhost
+
 # Create necessary directories
 RUN mkdir -p /var/lib/pufferpanel
 
@@ -19,6 +23,3 @@ CMD ["create", "--name", "pufferpanel", "-p", "2020:2020", "-p", "5657:5657", "-
 
 # Command to start the PufferPanel container
 CMD ["start", "pufferpanel"]
-
-# Command to add a user with administrative privileges
-CMD ["pufferpanel", "user", "add", "--email", "chiragsadhwanivns@gmail.com", "--name", "foxytoux", "--password", "chirag123", "--admin"]
