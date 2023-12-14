@@ -19,7 +19,7 @@ VOLUME /var/run/docker.sock
 EXPOSE 2020 5657
 
 # Command to create and start the PufferPanel container
-CMD ["create", "--name", "pufferpanel", "-p", "2020:2020", "-p", "5657:5657", "-v", "pufferpanel-config:/etc/pufferpanel", "-v", "/var/lib/pufferpanel:/var/lib/pufferpanel", "-v", "/var/run/docker.sock:/var/run/docker.sock", "--restart=on-failure", "pufferpanel/pufferpanel:latest"]
+RUN ["create", "--name", "pufferpanel", "-p", "2020:2020", "-p", "5657:5657", "-v", "pufferpanel-config:/etc/pufferpanel", "-v", "/var/lib/pufferpanel:/var/lib/pufferpanel", "-v", "/var/run/docker.sock:/var/run/docker.sock", "--restart=on-failure", "pufferpanel/pufferpanel:latest"]
 
 # Command to start the PufferPanel container
-CMD ["docker", "start", "pufferpanel"]
+CMD ["pufferpanel", "start", "pufferpanel"]
